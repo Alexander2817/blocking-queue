@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=mergesort
+#SBATCH --partition=Centaurus
+#SBATCH --time=01:00:00
+#SBATCH --mem=32G
+#SBATCH --output=times.txt
+
+for depth in 2 3 4 5;
+do
+echo "Running client with depth = $depth"
+./client Tom%20Hanks $depth
+
+echo "Running block_client with depth = $depth"
+./block_client Tom%20Hanks $depth
+done
